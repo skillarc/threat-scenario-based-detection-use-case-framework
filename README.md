@@ -40,6 +40,12 @@ Mi objetivo es construir un framework transversal para **transformar escenarios 
 
 El elemento central no debería ser una herramienta, un SIEM específico o una industria determinada, sino el **escenario de amenaza** y la capacidad real de la organización para observar y detectar su evolución.
 
+## Documentación
+
+La especificación formal se irá desarrollando progresivamente en la carpeta `docs/`.
+
+- [1. Introducción, problema, propósito y alcance](docs/01-introduccion-problema-proposito-alcance.md)
+
 ## Objetivos específicos
 
 El framework busca:
