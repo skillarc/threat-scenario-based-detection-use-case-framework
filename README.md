@@ -2,11 +2,11 @@
 
 > **Draft v0.1 — Work in Progress**
 
-Estoy desarrollando **Threat Scenario-Based Detection Use Case Framework**, una metodología orientada a diseñar casos de uso de detección a partir de **escenarios de amenaza**, en lugar de construir detecciones como eventos o reglas aisladas.
+Estoy desarrollando **Threat Scenario-Based Detection Use Case Framework**, una metodología orientada a diseñar, medir y mejorar capacidades de detección a partir de **escenarios de amenaza**, en lugar de construir detecciones como eventos o reglas aisladas.
 
-La idea parte de una pregunta sencilla: **¿qué escenario de amenaza necesito detectar y qué visibilidad tengo para identificar su evolución?**
+La idea parte de una pregunta sencilla: **¿qué escenario de amenaza necesito detectar, cómo puede evolucionar y qué visibilidad tengo para identificarlo a lo largo de sus distintas fases?**
 
-El framework busca establecer un proceso trazable que permita partir del contexto de amenazas, definir un escenario relevante, modelar cómo podría desarrollarse un ataque, identificar sus fases y comportamientos observables, y convertir esos puntos de detección en casos de uso que puedan implementarse mediante la telemetría disponible en cada organización.
+El framework busca establecer un proceso trazable que permita partir del contexto de amenazas, definir un escenario relevante, modelar cómo podría desarrollarse un ataque, identificar sus fases y comportamientos observables, evaluar las fuentes de datos disponibles y convertir esos puntos de observación en capacidades de detección medibles.
 
 ## Concepto inicial
 
@@ -26,25 +26,83 @@ El flujo que estoy desarrollando considera, de manera preliminar:
 ↓  
 **Detection Use Cases**  
 ↓  
-**Coverage & Gaps**
+**Coverage & Gaps**  
+↓  
+**Improvement**
 
-Esto permite que los casos de uso tengan trazabilidad hacia un escenario concreto y que sea posible determinar **qué parte del escenario está cubierta, dónde existen brechas de visibilidad y qué nuevas capacidades de detección deberían desarrollarse**.
+La finalidad no es únicamente generar casos de uso. El objetivo es entender **qué parte de un escenario puede observarse, qué parte puede detectarse, dónde existen brechas y qué capacidades deberían incorporarse o mejorarse**.
 
-## Objetivo
+El escenario de amenaza se considera la unidad principal de diseño. Los casos de uso de detección son mecanismos de observación que, en conjunto, proporcionan cobertura sobre dicho escenario.
 
-Mi objetivo es construir un framework transversal que pueda adaptarse a organizaciones con diferentes tecnologías y niveles de madurez. El elemento central no debería ser una herramienta, un SIEM específico o una industria determinada, sino el **escenario de amenaza** y la capacidad real de la organización para observarlo.
+## Objetivo principal
 
-Las fuentes de datos disponibles —firewalls, identidades, endpoints, servidores, nube, aplicaciones, redes u otras tecnologías— determinarán qué comportamientos pueden observarse y, por tanto, qué cobertura de detección puede alcanzarse frente al escenario modelado.
+Mi objetivo es construir un framework transversal para **transformar escenarios de amenaza relevantes en capacidades de detección estructuradas, trazables y medibles**, mediante modelado de amenazas, análisis de rutas de ataque, identificación de oportunidades de detección y evaluación de la telemetría disponible.
+
+El elemento central no debería ser una herramienta, un SIEM específico o una industria determinada, sino el **escenario de amenaza** y la capacidad real de la organización para observar y detectar su evolución.
+
+## Objetivos específicos
+
+El framework busca:
+
+- Cambiar el enfoque desde **detecciones aisladas hacia cobertura de escenarios de amenaza completos**.
+- Proporcionar trazabilidad entre **amenaza, escenario, comportamiento adversario, fase de ataque, fuente de datos y caso de uso de detección**.
+- Incorporar **Threat Intelligence** como una entrada para seleccionar y contextualizar escenarios relevantes.
+- Incorporar **Threat Modeling** para comprender cómo puede materializarse y evolucionar cada escenario.
+- Identificar **Detection Opportunities / Detection Points** antes de diseñar reglas o correlaciones específicas.
+- Evaluar las **fuentes de datos y telemetría** necesarias para observar cada comportamiento relevante.
+- Diseñar y priorizar **Detection Use Cases** en función de la cobertura que aportan sobre el escenario.
+- Relacionar comportamientos adversarios con marcos reconocidos como **MITRE ATT&CK** cuando corresponda.
+- Medir la **cobertura de detección por escenario y por fase de ataque**.
+- Identificar y diferenciar brechas de detección, telemetría, visibilidad y arquitectura.
+- Utilizar esas brechas para orientar nuevas detecciones, mejoras de logging, incorporación de fuentes de datos o cambios de arquitectura de seguridad.
+- Mantener independencia respecto de fabricantes, plataformas SIEM/XDR y tecnologías específicas.
+- Facilitar la revisión y mejora continua cuando cambien las amenazas, la infraestructura o la capacidad de observación de la organización.
+
+## Modelo inicial de cobertura y brechas
+
+Una parte importante del framework será diferenciar por qué un comportamiento relevante no está cubierto.
+
+De manera preliminar se consideran las siguientes categorías:
+
+- **Detection Gap:** existe telemetría suficiente, pero no existe una capacidad de detección adecuada.
+- **Telemetry Gap:** no existe una fuente de datos capaz de proporcionar la evidencia necesaria.
+- **Visibility Gap:** la fuente existe, pero la información necesaria no está habilitada, recolectada, normalizada o disponible para análisis.
+- **Control / Architecture Gap:** la arquitectura o los controles existentes limitan la capacidad de observar o detectar el comportamiento.
+
+Esto permitirá que el resultado del framework no sea siempre la creación de un nuevo caso de uso. Dependiendo del gap identificado, el resultado puede ser también una recomendación de habilitación de logging, incorporación de telemetría, integración de una nueva fuente o mejora de arquitectura.
+
+## Ciclo conceptual
+
+El modelo puede resumirse inicialmente como:
+
+**THREAT**  
+↓  
+**UNDERSTAND** — Threat Intelligence / Context  
+↓  
+**MODEL** — Threat Scenario / Threat Modeling / Attack Path  
+↓  
+**OBSERVE** — Detection Opportunities  
+↓  
+**VERIFY** — Data Sources / Telemetry  
+↓  
+**DETECT** — Detection Use Cases  
+↓  
+**MEASURE** — Coverage & Gaps  
+↓  
+**IMPROVE** — Detection / Telemetry / Visibility / Architecture
 
 ## Principios iniciales
 
 - Diseñar detecciones a partir de **escenarios de amenaza**, no únicamente de eventos aislados.
+- Considerar el **escenario de amenaza como unidad principal de diseño y evaluación**.
 - Utilizar **modelado de amenazas** para entender cómo puede desarrollarse cada escenario.
 - Relacionar las detecciones con las diferentes **fases y comportamientos del ataque**.
 - Identificar los **puntos de detección** antes de diseñar reglas específicas.
 - Evaluar las **fuentes de datos y telemetría** realmente disponibles.
 - Relacionar los comportamientos adversarios con marcos reconocidos como **MITRE ATT&CK** cuando corresponda.
 - Medir la **cobertura y las brechas de detección** respecto del escenario completo.
+- Diferenciar entre falta de detección y falta de capacidad de observación.
+- Utilizar los gaps identificados como entrada para la **mejora continua de detecciones y arquitectura de seguridad**.
 - Mantener independencia respecto de fabricantes y tecnologías específicas.
 
 ## Estado del proyecto
@@ -53,7 +111,7 @@ Este repositorio contiene una metodología **en desarrollo**. La estructura, ter
 
 Como parte de este proceso, evaluaré su relación y diferencias con enfoques existentes de threat modeling, threat-informed defense, detection engineering y gestión de casos de uso, incluyendo referencias como **MITRE ATT&CK**, Cyber Kill Chain y **MaGMa Use Case Framework**.
 
-La intención de esta primera publicación es documentar la evolución del enfoque de manera abierta y construir progresivamente una especificación reproducible.
+La intención de esta publicación es documentar la evolución del enfoque de manera abierta y construir progresivamente una especificación reproducible.
 
 ---
 
