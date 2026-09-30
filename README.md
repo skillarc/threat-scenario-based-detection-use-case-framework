@@ -58,6 +58,7 @@ La especificación formal se irá desarrollando progresivamente en la carpeta `d
 - [2. Principios y terminología: CD y UD](docs/02-principios-y-terminologia.md)
 - [3. Modelo metodológico v0.2](docs/03-modelo-metodologico-v0.2.md)
 - [4. Fases y automatización temprana](docs/04-fases-y-automatizacion-temprana.md)
+- [5. Modelo de Unidad de Detección y automatización](docs/05-modelo-ud-y-automatizacion.md)
 
 ## Objetivos específicos
 
