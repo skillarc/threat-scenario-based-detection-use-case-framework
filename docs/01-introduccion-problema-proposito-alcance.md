@@ -1,6 +1,6 @@
 # 1. Introducción, problema, propósito y alcance
 
-> **Threat Scenario-Based Detection Use Case Framework — Draft v0.1**
+> **Threat Scenario-Based Detection Use Case Framework — Draft v0.2**
 
 ## 1.1 Introducción
 
@@ -12,7 +12,7 @@ El propósito no es únicamente responder a la pregunta *“¿qué regla puedo c
 
 > **¿Qué escenario de amenaza necesito detectar, cómo puede evolucionar, qué comportamientos pueden observarse durante su desarrollo y qué capacidades necesito para detectar esas señales a tiempo?**
 
-A partir de esta premisa, el framework busca conectar de forma trazable el contexto de amenaza con el modelado del escenario, las rutas de ataque, las oportunidades de detección, las fuentes de datos disponibles, los casos de uso de detección y la medición de cobertura y brechas.
+A partir de esta premisa, el framework busca conectar de forma trazable el contexto de amenaza con el modelado del escenario, sus fases y comportamientos, las Capacidades de Detección (CD), las Unidades de Detección (UD), las fuentes de datos disponibles, la medición de cobertura y las acciones de respuesta o automatización.
 
 ## 1.2 Problema que busca resolver
 
@@ -37,9 +37,9 @@ El framework propone cambiar la unidad de análisis: de la regla individual haci
 
 La tesis principal del framework es:
 
-> **El escenario de amenaza es la unidad principal de diseño y evaluación. Los casos de uso de detección son mecanismos de observación que, en conjunto, proporcionan cobertura sobre dicho escenario.**
+> **El escenario de amenaza es la unidad principal de diseño y evaluación. Las Capacidades de Detección (CD) expresan qué comportamiento se necesita detectar y las Unidades de Detección (UD) materializan esas capacidades mediante lógicas específicas, verificables y medibles.**
 
-Esta idea implica que un caso de uso no debería evaluarse únicamente por su funcionamiento técnico. También debería ser posible responder:
+Esta idea implica que una UD no debería evaluarse únicamente por su funcionamiento técnico. También debería ser posible responder:
 
 - ¿qué escenario de amenaza contribuye a detectar?;
 - ¿qué comportamiento adversario observa?;
@@ -54,23 +54,29 @@ El propósito del **Threat Scenario-Based Detection Use Case Framework** es prop
 
 Para ello, el framework busca integrar de forma coherente:
 
+**Objetivo / Riesgo**  
+↓  
 **Threat Intelligence / Contexto**  
 ↓  
 **Threat Scenario**  
 ↓  
 **Threat Modeling**  
 ↓  
-**Attack Path / Fases del ataque**  
+**Fases y comportamientos**  
 ↓  
-**Detection Opportunities**  
+**Capacidades de Detección (CD)**  
+↓  
+**Unidades de Detección (UD)**  
 ↓  
 **Data Sources / Telemetría**  
 ↓  
-**Detection Use Cases**  
+**MITRE ATT&CK / Trazabilidad**  
 ↓  
 **Coverage & Gaps**  
 ↓  
-**Improvement**
+**Response / Automation**  
+↓  
+**Validation & Improvement**
 
 El resultado esperado no es siempre una nueva regla. Dependiendo del análisis, la mejora necesaria puede ser una nueva detección, una modificación de una detección existente, habilitación de logging, incorporación de una fuente de datos, normalización de telemetría, mejora de visibilidad o una modificación de arquitectura o controles.
 
@@ -85,18 +91,19 @@ El objetivo principal es:
 El framework busca:
 
 1. Diseñar capacidades de detección a partir de **escenarios de amenaza**, en lugar de depender únicamente de eventos o reglas aisladas.
-2. Proporcionar trazabilidad entre **amenaza, escenario, comportamiento adversario, fase de ataque, fuente de datos y caso de uso de detección**.
+2. Proporcionar trazabilidad entre **amenaza, escenario, comportamiento adversario, fase, CD, UD, fuente de datos y acción de respuesta**.
 3. Incorporar **Threat Intelligence** como entrada para seleccionar, contextualizar y priorizar escenarios relevantes.
 4. Aplicar **Threat Modeling** para representar cómo un escenario puede materializarse y evolucionar.
 5. Identificar **Detection Opportunities / Detection Points** antes de diseñar reglas específicas.
 6. Determinar qué **telemetría** es necesaria para observar cada comportamiento relevante.
-7. Diseñar y priorizar **Detection Use Cases** en función de la cobertura que aportan al escenario.
+7. Diseñar **Capacidades de Detección (CD)** y **Unidades de Detección (UD)** en función de la cobertura que aportan al escenario.
 8. Relacionar comportamientos adversarios con marcos como **MITRE ATT&CK** cuando sea aplicable.
 9. Medir la **cobertura por escenario y por fase de ataque**.
 10. Identificar y diferenciar **Detection Gaps, Telemetry Gaps, Visibility Gaps y Control / Architecture Gaps**.
 11. Utilizar las brechas identificadas para orientar decisiones de Detection Engineering y arquitectura de seguridad.
 12. Facilitar una mejora continua basada en cambios de amenaza, infraestructura, telemetría y controles.
 13. Mantener independencia respecto de fabricantes, tecnologías SIEM/XDR y sectores específicos.
+14. Diseñar la **respuesta y automatización desde la UD**, priorizando contenciones tempranas, reversibles y gobernadas en las primeras fases del escenario.
 
 ## 1.7 Alcance
 
@@ -138,7 +145,9 @@ Una aplicación completa del framework debería permitir producir, como mínimo:
 - una representación de sus fases o rutas de ataque;
 - comportamientos relevantes y oportunidades de detección;
 - requisitos de telemetría asociados;
-- casos de uso de detección vinculados al escenario;
+- Capacidades de Detección (CD) vinculadas al escenario;
+- Unidades de Detección (UD) vinculadas a cada CD;
+- acciones de respuesta y niveles de automatización asociados a las UD;
 - un mapa de cobertura;
 - brechas identificadas y clasificadas;
 - acciones de mejora priorizadas.
