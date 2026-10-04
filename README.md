@@ -6,6 +6,20 @@
 
 **Resumen:** metodología para diseñar detecciones desde escenarios de amenaza, medir cobertura real y conectar cada Unidad de Detección con telemetría, contexto, respuesta y automatización.
 
+## Casos de uso basados en escenarios de amenaza
+
+El **Threat Scenario-Based Detection Use Case Framework** es una metodología para diseñar **casos de uso basados en escenarios de amenaza** y convertirlos en capacidades de detección medibles, trazables y automatizables.
+
+También puede entenderse como un **framework de casos de uso de detección basados en escenarios de amenaza** para entornos **SOC, CyberSOC, SIEM, XDR y SOAR**. El enfoque parte del escenario de amenaza y su progresión, en lugar de comenzar únicamente desde reglas aisladas, eventos disponibles o funcionalidades de una herramienta.
+
+La metodología busca responder:
+
+> **¿Qué escenario de amenaza necesito detectar, qué comportamientos pueden aparecer durante su evolución, qué telemetría necesito, qué Unidades de Detección deben implementarse y qué respuesta puede automatizarse antes de que el ataque progrese?**
+
+Este enfoque relaciona **escenarios de amenaza, Threat Intelligence, Threat Modeling, MITRE ATT&CK, Capacidades de Detección (CD), Unidades de Detección (UD), fuentes de datos, cobertura, gaps y automatización SOAR**.
+
+➡️ [Metodología: casos de uso basados en escenarios de amenaza](docs/07-casos-de-uso-basados-en-escenarios-de-amenaza.md)
+
 ## Áreas relacionadas / Related domains
 
 **Threat Modeling · Threat-Informed Defense · Detection Engineering · Security Operations (SOC) · SIEM · SOAR · MITRE ATT&CK · Detection Coverage · Detection Gaps · Telemetry Engineering · Detection Automation · Incident Response · Use Case Management**
