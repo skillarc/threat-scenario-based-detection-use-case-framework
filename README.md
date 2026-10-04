@@ -1,4 +1,4 @@
-# Threat Scenario-Based Detection Use Case Framework
+# Casos de uso basados en escenarios de amenaza | Threat Scenario-Based Detection Use Case Framework
 
 > **Draft v0.2 — Work in Progress**
 
@@ -10,7 +10,7 @@
 
 El **Threat Scenario-Based Detection Use Case Framework** es una metodología para diseñar **casos de uso basados en escenarios de amenaza** y convertirlos en capacidades de detección medibles, trazables y automatizables.
 
-También puede entenderse como un **framework de casos de uso de detección basados en escenarios de amenaza** para entornos **SOC, CyberSOC, SIEM, XDR y SOAR**. El enfoque parte del escenario de amenaza y su progresión, en lugar de comenzar únicamente desde reglas aisladas, eventos disponibles o funcionalidades de una herramienta.
+También puede entenderse como un **framework de casos de uso de detección basados en escenarios de amenaza** y como una metodología para diseñar **casos de uso SIEM basados en escenarios de amenaza** en entornos **SOC, CyberSOC, SIEM, XDR y SOAR**. El enfoque parte del escenario de amenaza y su progresión, en lugar de comenzar únicamente desde reglas aisladas, eventos disponibles o funcionalidades de una herramienta.
 
 La metodología busca responder:
 
