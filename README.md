@@ -2,11 +2,28 @@
 
 > **Draft v0.2 — Work in Progress**
 
+**English summary:** A vendor-neutral, threat-informed **Detection Engineering** methodology for transforming **threat scenarios** into measurable **Detection Capabilities (CD)** and implementable **Detection Units (UD)**, mapping them to **data sources, telemetry and MITRE ATT&CK**, measuring **detection coverage and gaps**, and enabling controlled **SOC/SIEM/SOAR response automation** in the earliest attack phases.
+
+**Resumen:** metodología para diseñar detecciones desde escenarios de amenaza, medir cobertura real y conectar cada Unidad de Detección con telemetría, contexto, respuesta y automatización.
+
+## Áreas relacionadas / Related domains
+
+**Threat Modeling · Threat-Informed Defense · Detection Engineering · Security Operations (SOC) · SIEM · SOAR · MITRE ATT&CK · Detection Coverage · Detection Gaps · Telemetry Engineering · Detection Automation · Incident Response · Use Case Management**
+
 Estoy desarrollando **Threat Scenario-Based Detection Use Case Framework**, una metodología orientada a diseñar, medir y mejorar capacidades de detección a partir de **escenarios de amenaza**, en lugar de construir detecciones como eventos o reglas aisladas.
 
 La idea parte de una pregunta sencilla: **¿qué escenario de amenaza necesito detectar, cómo puede evolucionar y qué visibilidad tengo para identificarlo a lo largo de sus distintas fases?**
 
 El framework busca establecer un proceso trazable que permita partir del contexto de amenazas, definir un escenario relevante, modelar cómo podría desarrollarse un ataque, identificar sus fases y comportamientos observables, evaluar las fuentes de datos disponibles y convertir esos puntos de observación en capacidades de detección medibles.
+
+## Diferenciadores del enfoque
+
+- El **escenario de amenaza** es la unidad principal de diseño y evaluación.
+- Separa **Capacidad de Detección (CD)** de **Unidad de Detección (UD)** para distinguir necesidad metodológica de lógica implementable.
+- Mide cobertura por **escenario, fase, comportamiento, CD y UD**, en lugar de utilizar únicamente el número de reglas.
+- Diferencia **Detection Gap, Telemetry Gap, Visibility Gap y Control / Architecture Gap**.
+- Diseña la **respuesta y automatización desde la UD**, con énfasis en Reconocimiento y Acceso inicial.
+- Mantiene independencia de fabricantes, SIEM, XDR, EDR y tecnologías específicas.
 
 ## Modelo v0.2
 
@@ -59,6 +76,10 @@ La especificación formal se irá desarrollando progresivamente en la carpeta `d
 - [3. Modelo metodológico v0.2](docs/03-modelo-metodologico-v0.2.md)
 - [4. Fases y automatización temprana](docs/04-fases-y-automatizacion-temprana.md)
 - [5. Modelo de Unidad de Detección y automatización](docs/05-modelo-ud-y-automatizacion.md)
+- [6. English overview](docs/06-english-overview.md)
+- [Roadmap](ROADMAP.md)
+- [Changelog](CHANGELOG.md)
+- [Contributing](CONTRIBUTING.md)
 
 ## Objetivos específicos
 
